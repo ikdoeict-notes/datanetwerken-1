@@ -1,0 +1,67 @@
+
+---WIS HUIDIGE CONFIG---
+enable
+erase startup-config
+reload
+
+---CONFIG NAAM---
+enable
+config terminal
+hostname router 0
+
+---DESCRIPTION---
+enable
+configure terminal
+interface "interfacenaam"
+description hier de discription
+end
+
+---PASSWORD_ENABLE_MODE---
+enable
+conf(igure) t(erminal)
+service password-encryption
+enable password cisco
+
+---IPV4_CONFIG---
+enable
+conf t
+interface G0/0
+ip address 172.17.. 255.255.
+no shutdown
+
+---DISABLE DNSLOOKUP---
+enable
+conf t
+interface G0/0
+no ip-domain lookup
+
+---CONSOLE PASSWORD---
+conf t
+line con 0
+password ""
+login
+end
+
+---TELNET PASSWORD---
+conf t
+line vty 0 4
+username "" password ""
+login local
+end
+
+---IPV6 CONFIG---
+enable 
+conf t
+interface ...
+ipv6 address ipv6-prefix/prefix-length eui-64
+exit
+ipv6 unicast-routing
+
+---LOOPBACK---
+enable
+conf t
+interface loopback0
+ip address ... 255...
+
+---save!!!---
+copy running-config startup-config
